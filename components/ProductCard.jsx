@@ -18,7 +18,7 @@ export default function ProductCard({ product }) {
       <div className="flex flex-col self-start pl-3">
         <h1>{title}</h1>
         <h5>€ {price}</h5>
-        <button className="bg-yellow-400 py-4 px-7 rounded-md self-start text-black cursor-pointer hover:text-white">
+        <button className="bg-yellow-400 py-2 px-7 rounded-md self-start text-black cursor-pointer hover:text-white">
           Buy
         </button>
       </div>
