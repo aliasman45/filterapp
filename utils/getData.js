@@ -1,42 +1,39 @@
-export async function getData(selected) {
+export async function getData(filters = {}) {
   const res = await fetch("https://dummyjson.com/products");
   const { products } = await res.json();
-  let data = products;
-  let hello = [];
-
-  if (selected) {
-    const arrayFilter = [...selected];
-
-    arrayFilter.forEach((item) => {
-      let filtredData = data.filter(({ brand }) => brand === item);
-      // hello = [...hello]; // Save previous state of `hello` array
-      hello = [...hello, ...filtredData];
-    });
-
-    return (data = hello);
-  }
-  // console.log(data);
-  return data;
+  return products;
 }
-// // data.filter(({ brand, category }) => brand === item);
 
-// export async function getData(selected) {
+// export async function getData(filters = {}) {
 //   const res = await fetch("https://dummyjson.com/products");
 //   const { products } = await res.json();
 //   let data = products;
-//   let hello = [];
+//   console.log(data);
+//   const { category, brand } = filters;
+//   if (category && brand) {
+//     let filteredDataArray = [];
+//     if (category.length >= 0) {
+//       filters.category.forEach((item) => {
+//         let filtredData = data.filter(({ category }) => category === item);
+//         filteredDataArray = [...filteredDataArray, filtredData];
+//       });
+//       console.log(...filteredDataArray);
 
-//   if (selected) {
-//     const arrayFilter = [...selected];
-
-//     arrayFilter.forEach((item) => {
-//       let filteredData = data.filter(({ brand }) => brand === item);
-//       hello = [...hello, ...filteredData]; // Accumulate filtered results in `hello` array
-//     });
-//     console.log(hello);
-
-//     return (data = hello); // Return the filtered results from `hello` array
+//       // return (data = [...filteredDataArray]);
+//     }
 //   }
 
+//   // if (selected) {
+//   //   const arrayFilter = [...selected];
+
+//   //   arrayFilter.forEach((item) => {
+//   //     let filtredData = data.filter(({ brand }) => brand === item);
+//   //     // hello = [...hello]; // Save previous state of `hello` array
+//   //     hello = [...hello, ...filtredData];
+//   //   });
+
+//   //   return (data = hello);
+//   // }
+//   // console.log(data);
 //   return data;
 // }
