@@ -1,20 +1,19 @@
 "use client";
 import React, { useEffect, useState, useContext } from "react";
-import { getData } from "@/utils/getData";
 import { filterData } from "@/utils/filterData";
 import ProductCard from "./ProductCard";
 import { FilterContext } from "@/context/filterCotext";
 export default function Products() {
   const [products, setProducts] = useState([]);
   const { filters, setFilters, querry } = useContext(FilterContext);
-
+  // console.log(products);
   useEffect(() => {
     const fetchData = async () => {
-      const products = await filterData(filters, querry);
-      setProducts(products);
+      const data = await filterData(filters, querry);
+      setProducts(data);
     };
     fetchData();
-  }, [filters, querry]);
+  }, [filters, querry, setFilters]);
 
   return (
     <>

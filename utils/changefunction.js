@@ -28,3 +28,10 @@ export async function getData(filters = {}) {
 
   return data;
 }
+
+// if (brand.length > 0) {
+//   brand.forEach((item) => {
+//     let filtredData = data.filter(({ brand }) => brand === item);
+//     filteredDataArray = [...filteredDataArray, ...filtredData];
+//   });
+// }

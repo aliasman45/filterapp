@@ -4,7 +4,7 @@ export default function ProductCard({ product }) {
   const { thumbnail, title, price, id } = product;
   return (
     <div
-      key={id}
+      // key={}
       className="flex flex-col justify-between items-center h-62 py-3 shadow-lg rounded-md hover:cursor-pointer hover:scale-105"
     >
       <div className="pb-2 w-32 h-32">
