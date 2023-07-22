@@ -34,7 +34,7 @@ export default function Categories() {
   return (
     <div>
       <h1 className="text-xl font-bold text-gray-600">Categories</h1>
-      <div className="flex flex-col">
+      <div className="flex flex-wrap gap-2 lg:flex-col">
         {categories?.map((category, index) => (
           <label key={index} className="flex gap-4 justify-start pb-2">
             <input

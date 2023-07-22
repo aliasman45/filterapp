@@ -38,7 +38,7 @@ export default function Brands() {
   return (
     <div>
       <h1 className="text-xl font-bold text-gray-600">Brands</h1>
-      <div className="flex flex-col">
+      <div className="flex flex-wrap gap-2 lg:flex-col">
         {brand?.map((category, index) => (
           <label key={index} className="flex gap-4 justify-start pb-2">
             <input

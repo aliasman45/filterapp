@@ -10,7 +10,7 @@ export async function filterData(filters = {}, querry) {
       let filtredData = data.filter(
         ({ title }) => title.toLowerCase().indexOf(querry.toLowerCase()) !== -1
       );
-      return (filteredDataArray = [...filteredDataArray, ...filtredData]);
+      return [...filteredDataArray, ...filtredData];
     }
     //checking if user click only category
     if (category.length > 0) {

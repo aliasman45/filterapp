@@ -1,12 +1,19 @@
 import React from "react";
-import Filters from "./Filters";
 import SearchInput from "./SearchInput";
+import Categories from "./Categories";
+import Brands from "./Brands";
+import Menu from "./Menu";
 export default function Nav() {
   return (
     <div className="flex justify-between items-center relative">
       <SearchInput />
-      <Filters />
-      <div className="absolute bottom-0 right-0">hello</div>
+      <Menu />
+      {/* <div className="absolute right-0 top-[100%] z-10 bg-green-400 md:hidden">
+        <div>
+          <Categories />
+          <Brands />
+        </div>
+      </div> */}
     </div>
   );
 }
