@@ -6,7 +6,6 @@ import { FilterContext } from "@/context/filterCotext";
 export default function Products() {
   const [products, setProducts] = useState([]);
   const { filters, setFilters, querry } = useContext(FilterContext);
-  // console.log(products);
   useEffect(() => {
     const fetchData = async () => {
       const data = await filterData(filters, querry);

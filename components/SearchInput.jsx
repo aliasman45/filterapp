@@ -5,12 +5,12 @@ import { BsSearch } from "react-icons/bs";
 import { filterData } from "@/utils/filterData";
 export default function SearchInput() {
   const { querry, setQuerry, filters } = useContext(FilterContext);
+
   useEffect(() => {
     const data = async () => {
       await filterData(filters, querry);
     };
     data();
-    // console.log(querry);
   }, [querry]);
   return (
     <nav className="py-4">
