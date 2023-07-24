@@ -20,7 +20,7 @@ export default function SearchInput() {
           value={querry}
           onChange={(e) => setQuerry(e.target.value)}
           placeholder={`search...`}
-          className="text-gray-400 outline-none border-2 rounded-md border-gray-400 p-1"
+          className="text-gray-400 outline-none border-2 rounded-md border-gray-400 p-1 w-40 sm:w-full"
         />
         {/* <button className="cursor-pointer bg-yellow-400 py-2 px-7 rounded-md hover:text-white">
           <BsSearch />
