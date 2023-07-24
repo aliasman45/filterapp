@@ -2,37 +2,42 @@
 import React, { useRef } from "react";
 import Image from "next/image";
 export default function ProductImages({ thumbnail, images }) {
-  const imageLink = useRef(thumbnail);
+  const imageLink = useRef(null);
+  const handleImageUrl = (url) => {
+    imageLink.current.src = url;
+  };
   return (
-    <div className="w-full md:w-1/2 flex flex-col gap-2">
-      <Image
+    <div className="w-full md:w-1/2 flex flex-col gap-2 pt-10 self-start">
+      <img
         src={thumbnail}
         ref={imageLink}
         alt={thumbnail}
-        priority={true}
-        width={500}
-        height={500}
-        className="w-full items-center rounded-md"
+        // priority={true}
+        // width={500}
+        // height={500}
+        className="w-full h-40 sm:h-44 md:h-56 lg:h-80 items-center rounded-md self-start object-contain border-2 border-gray-300"
       />
-      <div className="flex flex-wrap gap-2 cursor-pointer w-full justify-between">
-        <Image
+
+      <div className="flex flex-wrap gap-2 cursor-pointer w-full">
+        <img
           src={thumbnail}
-          width={100}
-          height={100}
+          // width={100}
+          // height={100}
+          // priority={true}
           alt={thumbnail}
-          priority={true}
-          className="border-2 border-gray-500 rounded-md"
-          onClick={(e) => console.log(e.target)}
+          className="border-2 border-gray-500 rounded-md w-20 object-contain"
+          onClick={() => handleImageUrl(thumbnail)}
         />
         {images.map((image, index) => (
-          <Image
+          <img
             src={image}
-            width={100}
-            height={100}
+            // width={100}
+            // height={100}
+            // priority={true}
             key={index}
-            priority={true}
             alt={image}
-            className="border-2 border-gray-500 rounded-md"
+            className="border-2 border-gray-500 rounded-md w-20 object-contain"
+            onClick={() => handleImageUrl(image)}
           />
         ))}
       </div>
