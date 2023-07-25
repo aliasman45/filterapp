@@ -15,10 +15,10 @@ export default function ProductCard({ product }) {
             height={200}
             alt={thumbnail}
             priority={true}
-            className="object-contain w-full h-full"
+            className="object-contain w-full h-full items-center"
           />
         </div>
-        <div className="flex flex-col self-start pl-3">
+        <div className="flex flex-col pl-3">
           <h1>{title}</h1>
           <h5>€ {price}</h5>
         </div>

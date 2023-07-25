@@ -1,6 +1,7 @@
 "use client";
 import React, { useContext } from "react";
 import { CartContext } from "@/context/cartContext";
+import cartEmpty from "@/public/cartempty.gif";
 import {
   AiFillDelete,
   AiFillMinusCircle,
@@ -11,10 +12,10 @@ import Image from "next/image";
 export default function CartItems() {
   const { cart, setIsOpen, isOpen } = useContext(CartContext);
   return (
-    <div className="p-5">
+    <div className="pt-5">
       <AiOutlineClose
         size={20}
-        className="cursor-pointer hover:text-red-600"
+        className="cursor-pointer hover:text-red-600 ml-5"
         onClick={() => setIsOpen(!isOpen)}
       />
       {cart.map(({ thumbnail, title, price }) => (
@@ -45,6 +46,11 @@ export default function CartItems() {
         >
           CheckOut!!!
         </button>
+      )}
+      {!cart.length && (
+        <div className="flex items-center justify-center h-screen">
+          <Image src={cartEmpty} width={300} height={300} className="" />
+        </div>
       )}
     </div>
   );
