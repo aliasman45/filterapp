@@ -1,9 +1,12 @@
 "use client";
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import Image from "next/image";
 export default function ProductImages({ thumbnail, images }) {
+  const [activeIndex, setActiveIndex] = useState(null);
+
   const imageLink = useRef(null);
-  const handleImageUrl = (url) => {
+  const handleImageUrl = (url, index) => {
+    setActiveIndex(index);
     imageLink.current.src = url;
   };
   return (
@@ -25,8 +28,10 @@ export default function ProductImages({ thumbnail, images }) {
           // height={100}
           // priority={true}
           alt={thumbnail}
-          className="border-2 border-gray-500 rounded-md w-20 object-contain"
-          onClick={() => handleImageUrl(thumbnail)}
+          onClick={() => handleImageUrl(thumbnail, null)}
+          className={`border-2 ${
+            activeIndex === null ? "border-gray-500" : "border-gray-300"
+          } rounded-md w-20 h-20 object-contain`}
         />
         {images.map((image, index) => (
           <img
@@ -36,8 +41,10 @@ export default function ProductImages({ thumbnail, images }) {
             // priority={true}
             key={index}
             alt={image}
-            className="border-2 border-gray-500 rounded-md w-20 object-contain"
-            onClick={() => handleImageUrl(image)}
+            onClick={() => handleImageUrl(image, index)}
+            className={`border-2 ${
+              activeIndex === index ? "border-gray-500" : "border-gray-300"
+            } rounded-md w-20 h-20 object-contain`}
           />
         ))}
       </div>

@@ -1,6 +1,7 @@
 import React from "react";
 import { getSingleProdcut } from "@/utils/getSingleProduct";
 import ProductImages from "@/components/ProductImages";
+import BuyButton from "@/components/BuyButton";
 export default async function page({ params }) {
   const { id } = params;
   const product = await getSingleProdcut(id);
@@ -13,9 +14,7 @@ export default async function page({ params }) {
         <h1 className="text-2xl text-black font-bold py-4">{title}</h1>
         <h4 className="text-xl text-gray-950 py-4">{description}</h4>
         <h1 className="text-2xl text-black font-bold py-4">$ {price}</h1>
-        <button className="bg-yellow-400 py-2 px-7 rounded-md self-start text-black cursor-pointer hover:text-white">
-          Add to Cart
-        </button>
+        <BuyButton product={product} />
       </div>
     </div>
   );

@@ -1,17 +1,9 @@
 "use client";
-import React, { useContext, useEffect } from "react";
+import React, { useContext } from "react";
 import { FilterContext } from "@/context/filterCotext";
 import { BsSearch } from "react-icons/bs";
-import { filterData } from "@/utils/filterData";
 export default function SearchInput() {
   const { querry, setQuerry, filters } = useContext(FilterContext);
-
-  useEffect(() => {
-    const data = async () => {
-      await filterData(filters, querry);
-    };
-    data();
-  }, [querry]);
   return (
     <nav className="py-4">
       <label className="flex items-center gap-3 ">
