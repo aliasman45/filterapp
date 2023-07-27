@@ -25,13 +25,13 @@ export const CartContextProvider = ({ children }) => {
       setCart(newCart);
     }
   };
-
+  // decrease quantity of cart item if clicked on minus button
   const decreaseQuantity = (product) => {
     const cartItem = cart.find((item) => item.id === product.id);
     if (cartItem && cartItem.quantity > 1) {
       const newCart = [...cart].map((item) => {
         if (item.id === product.id) {
-          return { ...item, quantity: cartItem.quantity - 1 };
+          return { ...item, quantity: product.quantity - 1 };
         } else {
           return item;
         }
@@ -39,9 +39,22 @@ export const CartContextProvider = ({ children }) => {
       setCart(newCart);
     }
   };
+
+  // remove product from cart when it's clicked on bin icon
+  const removeProduct = (product) => {
+    const newCart = cart.filter((item) => item.id !== product.id);
+    setCart(newCart);
+  };
   return (
     <CartContext.Provider
-      value={{ isOpen, setIsOpen, addToCart, cart, decreaseQuantity }}
+      value={{
+        isOpen,
+        setIsOpen,
+        addToCart,
+        cart,
+        decreaseQuantity,
+        removeProduct,
+      }}
     >
       {children}
     </CartContext.Provider>

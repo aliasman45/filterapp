@@ -10,8 +10,14 @@ import {
 } from "react-icons/ai";
 import Image from "next/image";
 export default function CartItems() {
-  const { cart, setIsOpen, isOpen, addToCart, decreaseQuantity } =
-    useContext(CartContext);
+  const {
+    cart,
+    setIsOpen,
+    isOpen,
+    addToCart,
+    decreaseQuantity,
+    removeProduct,
+  } = useContext(CartContext);
   return (
     <div className="pt-5">
       <AiOutlineClose
@@ -46,7 +52,12 @@ export default function CartItems() {
               </div>
             </div>
           </div>
-          <AiFillDelete className="text-lg cursor-pointer text-gray-500 hover:text-black" />
+          <AiFillDelete
+            className="text-lg cursor-pointer text-gray-500 hover:text-black"
+            onClick={() => {
+              removeProduct(product);
+            }}
+          />
         </div>
       ))}
       {cart.length > 0 && (
