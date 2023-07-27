@@ -7,8 +7,8 @@ export const CartContextProvider = ({ children }) => {
   const [isOpen, setIsOpen] = useState(false);
   // cart state
   const [cart, setCart] = useState([]);
-  // add to cart
 
+  // add to cart
   const addToCart = (product) => {
     // check if the product is already in the card
     const cartItem = cart.find((item) => item.id === product.id);
@@ -25,8 +25,24 @@ export const CartContextProvider = ({ children }) => {
       setCart(newCart);
     }
   };
+
+  const decreaseQuantity = (product) => {
+    const cartItem = cart.find((item) => item.id === product.id);
+    if (cartItem && cartItem.quantity > 1) {
+      const newCart = [...cart].map((item) => {
+        if (item.id === product.id) {
+          return { ...item, quantity: cartItem.quantity - 1 };
+        } else {
+          return item;
+        }
+      });
+      setCart(newCart);
+    }
+  };
   return (
-    <CartContext.Provider value={{ isOpen, setIsOpen, addToCart, cart }}>
+    <CartContext.Provider
+      value={{ isOpen, setIsOpen, addToCart, cart, decreaseQuantity }}
+    >
       {children}
     </CartContext.Provider>
   );
