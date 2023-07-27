@@ -1,6 +1,6 @@
 import { getData } from "./getData";
-export async function filterData(filters = {}, querry) {
-  const data = await getData();
+export async function filterData(products = [], filters = {}, querry) {
+  const data = products;
   const { category, brand } = filters;
 
   if (category.length > 0 || brand.length !== 0 || querry) {
