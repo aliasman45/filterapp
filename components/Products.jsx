@@ -3,13 +3,13 @@ import React, { useEffect, useState, useContext } from "react";
 import { filterData } from "@/utils/filterData";
 import ProductCard from "./ProductCard";
 import { FilterContext } from "@/context/filterCotext";
-export default function Products() {
+export default function Products({ data }) {
   const [products, setProducts] = useState([]);
   const { filters, setFilters, querry } = useContext(FilterContext);
   useEffect(() => {
     const fetchData = async () => {
-      const data = await filterData(filters, querry);
-      setProducts(data);
+      const res = await filterData(data, filters, querry);
+      setProducts(res);
     };
     fetchData();
   }, [filters, querry, setFilters]);
