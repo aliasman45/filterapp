@@ -2,23 +2,9 @@
 import React, { useEffect, useState, useContext } from "react";
 import { getData } from "@/utils/getData";
 import { FilterContext } from "@/context/filterCotext";
-export default function Brands() {
-  const [brand, setBrand] = useState([]);
+export default function Brands({ brand }) {
   const { filters, setFilters } = useContext(FilterContext);
-  useEffect(() => {
-    const fetchData = async () => {
-      const data = await getData();
-      const brands = data.map((product) => product.brand);
-      const uniqueBrand = brands.reduce((brandArray, currentItem) => {
-        if (!brandArray.includes(currentItem)) {
-          brandArray.push(currentItem);
-        }
-        return brandArray;
-      }, []);
-      setBrand(uniqueBrand);
-    };
-    fetchData();
-  }, []);
+
   function handleChange(e) {
     const { value, checked } = e.target;
 
@@ -34,7 +20,7 @@ export default function Brands() {
       }));
     }
   }
-  // console.log(filters.brand);
+
   return (
     <div>
       <h1 className="text-xl font-bold text-gray-600">Brands</h1>

@@ -19,7 +19,7 @@ export default function CartItems() {
         onClick={() => setIsOpen(!isOpen)}
       />
       {cart.map(({ thumbnail, title, price }) => (
-        <div className="flex justify-between my-2 cursor-pointer shadow-lg hover:scale-105 rounded-md">
+        <div className="flex justify-between p-2 cursor-pointer shadow-lg rounded-md">
           <div className="flex gap-2 max-w-[85%]">
             <Image
               src={thumbnail}
@@ -40,10 +40,7 @@ export default function CartItems() {
         </div>
       ))}
       {cart.length > 0 && (
-        <button
-          onClick={() => addToCart(product, id)}
-          className="bg-yellow-400 py-2 px-7 rounded-md self-start text-black cursor-pointer hover:text-white"
-        >
+        <button className="bg-yellow-400 py-2 px-7 rounded-md self-start text-black cursor-pointer hover:text-white">
           CheckOut!!!
         </button>
       )}

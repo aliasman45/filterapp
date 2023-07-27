@@ -8,7 +8,7 @@ export default function BuyButton({ product }) {
   return (
     <>
       <button
-        onClick={() => addToCart(product, id)}
+        onClick={() => addToCart(product)}
         className="bg-yellow-400 py-2 px-7 rounded-md self-start text-black cursor-pointer hover:text-white"
       >
         Add to Cart
