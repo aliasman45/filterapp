@@ -21,7 +21,7 @@ export default function ProductImages({ thumbnail, images }) {
         className="w-full h-40 sm:h-44 md:h-56 lg:h-80 items-center rounded-md self-start object-contain border-2 border-gray-300"
       />
 
-      <div className="flex flex-wrap gap-2 cursor-pointer w-full">
+      <div className="flex flex-wrap gap-2 w-full">
         <img
           src={thumbnail}
           // width={100}
@@ -31,7 +31,7 @@ export default function ProductImages({ thumbnail, images }) {
           onClick={() => handleImageUrl(thumbnail, null)}
           className={`border-2 ${
             activeIndex === null ? "border-gray-500" : "border-gray-300"
-          } rounded-md w-20 h-20 object-contain`}
+          } rounded-md w-20 h-20 object-contain cursor-pointer`}
         />
         {images.map((image, index) => (
           <img
@@ -44,7 +44,7 @@ export default function ProductImages({ thumbnail, images }) {
             onClick={() => handleImageUrl(image, index)}
             className={`border-2 ${
               activeIndex === index ? "border-gray-500" : "border-gray-300"
-            } rounded-md w-20 h-20 object-contain`}
+            } rounded-md w-20 h-20 object-contain cursor-pointer`}
           />
         ))}
       </div>
