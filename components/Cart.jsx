@@ -16,7 +16,7 @@ export default function Cart() {
       >
         <CartItems />
         {cart.length > 0 && (
-          <div className="flex flex-col">
+          <div className="flex flex-col pb-5 md:pb-0">
             <h1 className="text-xl font-semibold">
               Total: <span className="text-lg font-normal">{totalAmount}</span>
             </h1>
