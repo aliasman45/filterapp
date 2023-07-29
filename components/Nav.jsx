@@ -15,7 +15,7 @@ export default async function Nav() {
   return (
     <div className="flex justify-between items-center relative py-5">
       <div className="flex items-center gap-2">
-        <Link href="/" replace>
+        <Link href="/" prefetch={false}>
           <h1 className="text-lg sm:text-2xl font-bold cursor-pointer">
             <span>🏠</span>HOME
           </h1>
