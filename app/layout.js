@@ -14,12 +14,12 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={`${inter.className} px-10`}>
-        <FilterProvider>
-          <CartContextProvider>
+        <CartContextProvider>
+          <FilterProvider>
             <Nav />
             {children}
-          </CartContextProvider>
-        </FilterProvider>
+          </FilterProvider>
+        </CartContextProvider>
       </body>
     </html>
   );

@@ -26,13 +26,18 @@ export default function CartItems() {
         onClick={() => setIsOpen(!isOpen)}
       />
       {cart.map((product) => (
-        <div className="flex justify-between p-2 cursor-pointer shadow-lg rounded-md">
+        <div
+          className="flex justify-between p-2 cursor-pointer shadow-lg rounded-md"
+          key={product.id}
+        >
           <div className="flex gap-2 max-w-[85%]">
             <Image
               src={product.thumbnail}
               width={100}
               height={100}
+              alt={product.thumbnail}
               className="h-24 object-contain"
+              priority={true}
             />
             <div className="flex flex-col justify-around">
               <h1 className="text-sm">{product.title}</h1>
@@ -60,14 +65,15 @@ export default function CartItems() {
           />
         </div>
       ))}
-      {cart.length > 0 && (
-        <button className="bg-yellow-400 py-2 px-7 rounded-md self-start text-black cursor-pointer hover:text-white">
-          CheckOut!!!
-        </button>
-      )}
       {!cart.length && (
         <div className="flex items-center justify-center h-screen">
-          <Image src={cartEmpty} width={300} height={300} className="" />
+          <Image
+            src={cartEmpty}
+            width={300}
+            height={300}
+            priority={true}
+            alt="empty cart icon"
+          />
         </div>
       )}
     </div>

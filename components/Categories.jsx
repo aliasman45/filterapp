@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useEffect, useContext } from "react";
+import React, { useContext } from "react";
 import { FilterContext } from "@/context/filterCotext";
 export default function Categories({ categories }) {
   const { filters, setFilters } = useContext(FilterContext);
@@ -34,7 +34,7 @@ export default function Categories({ categories }) {
             />
             {category}
           </label>
-        )) || "loading...."}
+        )) || "loading....."}
       </div>
     </div>
   );

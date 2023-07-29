@@ -1,5 +1,5 @@
 "use client";
-import { createContext, useState } from "react";
+import { createContext, useState, useEffect } from "react";
 export const CartContext = createContext();
 
 export const CartContextProvider = ({ children }) => {
@@ -7,6 +7,8 @@ export const CartContextProvider = ({ children }) => {
   const [isOpen, setIsOpen] = useState(false);
   // cart state
   const [cart, setCart] = useState([]);
+  // totale amount of cart items in cart
+  const [totalAmount, setTotalAmount] = useState(0);
 
   // add to cart
   const addToCart = (product) => {
@@ -45,6 +47,17 @@ export const CartContextProvider = ({ children }) => {
     const newCart = cart.filter((item) => item.id !== product.id);
     setCart(newCart);
   };
+
+  // calculate totale amount of products in cart
+  useEffect(() => {
+    const totalAmount = (cart) => {
+      const totalAmount = cart.reduce((acc, currentItem) => {
+        return currentItem.quantity * currentItem.price + acc;
+      }, 0);
+      setTotalAmount(totalAmount);
+    };
+    totalAmount(cart);
+  }, [cart]);
   return (
     <CartContext.Provider
       value={{
@@ -54,6 +67,7 @@ export const CartContextProvider = ({ children }) => {
         cart,
         decreaseQuantity,
         removeProduct,
+        totalAmount,
       }}
     >
       {children}
